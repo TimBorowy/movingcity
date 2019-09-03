@@ -6,7 +6,7 @@ void setup()
   size(450, 450);
   frameRate(24);
 
-  aquarius = loadImage("waterman.jpg");
+  aquarius = loadImage("waterman3.jpg");
 
   // Connect to the local instance of fcserver. You can change this line to connect to another computer's fcserver
   opc = new OPC(this, "192.168.1.26", 7890);
@@ -21,7 +21,7 @@ void draw()
   //blendMode(ADD);
   
   // crude animation "speed"
-  float a = millis() * 0.00001 % 360;
+  float a = millis() * 0.00002 % 360;
   
   //float r = py * 0.5;
   //float dx = width/2 + cos(a) * r;
@@ -39,8 +39,8 @@ void draw()
   // rotate and translate the actual image
   translate(450/2,450/2); 
   rotate(a); 
-  
+  //tint(260, 100, 50, 255);
   image(aquarius, 0, 0, size, size);
   // color the image
-  tint(360, 0, 50, 255);
+  
 }
