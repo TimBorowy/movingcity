@@ -18,53 +18,75 @@ import java.io.IOException;
 public class grid9x9_starrysky extends PApplet {
 
 OPC opc;
-PImage aquarius;
+PImage[] aquarius = new PImage[5];
+PImage currentImage;
+int loop;
+int cycle;
 
 public void setup()
 {
   
-  frameRate(24);
+  frameRate(20);
 
-  aquarius = loadImage("aquarius.jpg");
-  //aquarius = loadImage("waterman2.jpg");
-  //aquarius = loadImage("waterman3.jpg");
-  aquarius = loadImage("aquarius_orange.jpg");
+  aquarius[0] = loadImage("data/aquarius_pink.jpg");
+  aquarius[1] = loadImage("data/aquarius_red.jpg");
+  aquarius[2] = loadImage("data/aquarius_purple.jpg");
+  aquarius[3] = loadImage("data/aquarius_blue.jpg");
+  aquarius[4] = loadImage("data/aquarius_orange.jpg");
+  
+  currentImage = aquarius[0];
+  loop = 0;
+  cycle = 1;
 
   // Connect to the local instance of fcserver. You can change this line to connect to another computer's fcserver
   opc = new OPC(this, "192.168.1.25", 7890);
   opc.ledGrid(0, 9, 9, width/2, height/2, 50, 50, 0, true);
 }
 
-float px, py;
-
 public void draw()
 {
+  loop++;
+  
   background(0);
-  //blendMode(ADD);
   
-  // crude animation "speed"
-  float a = millis() * 0.00002f % 360;
-  
-  //float r = py * 0.5;
-  //float dx = width/2 + cos(a) * r;
-  //float dy = height/2 + sin(a) * r;
+  // Defines how long a loop is
+  float frame = loop % 3601;
 
   // image size
   float size = 480;
-  
-  // tryout for color animation
-  float greenHue = millis() * 0.1f % 360;
-  float redHue =  millis() * 0.1f % 360;
-  
+
   imageMode(CENTER);
   
-  // rotate and translate the actual image
-  translate(450/2,450/2); 
-  rotate(a); 
-  //tint(260, 100, 50, 255);
-  image(aquarius, 0, 0, size, size);
-  // color the image
+  // Rotate and translate the actual image
+  translate(450/2, 450/2);
+  float rad = radians(frame/10);
+  rotate(rad);
   
+  // Change hue of image
+  // tint(260, 100, 50, 255);
+  
+  // Once a loop, select next image
+  if(frame == 3600){
+    
+    // 5 equals to amount of items in the image array
+    int i = cycle++ % 5; 
+    currentImage = aquarius[i];
+  }
+  
+  image(currentImage, 0, 0, size, size);
+  
+  // Speed
+  delay(1);
+}
+
+public void stop(){
+  // ToDo: before exiting, turn all pixels off.
+  int pixels = 9*9;
+
+  for(int i = 0; i < pixels; i++){
+    opc.setPixel(i, color(0,0,0));
+  }
+  opc.writePixels();
 }
 /*
  * Simple Open Pixel Control client for Processing,
