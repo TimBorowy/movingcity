@@ -1,5 +1,5 @@
 # Movingcity
-![picture of lamp](starry_pink.JPG)
+![picture of lamp](header-image.jpg)
 A code repository for all animations, configs and other stuffs that has to do with my fadecandy artproject.
 
 Moving City is a programmable 9x9 RGB LED matrix made using Fadecandy as pixel controller and a Raspberry Pi Zero as server  for incoming websocket connections and for controling the animations running on the matrix.
@@ -49,6 +49,11 @@ https://www.raspberrypi.org/documentation/configuration/wireless/access-point.md
 Patch to use FadeCandy board with TouchDesigner
 
 https://github.com/Heljick/FCDesigner
+
+Use TouchOSC to control animations?
+
+https://hexler.net/products/touchosc
+https://www.npmjs.com/package/node-osc
 
 
 
