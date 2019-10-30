@@ -9,7 +9,7 @@ void setup()
   aquarius = loadImage("waterman.jpg");
 
   // Connect to the local instance of fcserver. You can change this line to connect to another computer's fcserver
-  opc = new OPC(this, "192.168.1.26", 7890);
+  opc = new OPC(this, "192.168.1.25", 7890);
   opc.ledGrid(0, 9, 9, width/2, height/2, 50, 50, 0, true);
 }
 
@@ -42,5 +42,5 @@ void draw()
   //tint(260, 100, 50, 255);
   image(aquarius, 0, 0, size, size);
   // color the image
-  
+  opc.draw()
 }

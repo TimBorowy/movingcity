@@ -10,7 +10,7 @@ void setup()
   dot2 = loadImage("purpleDot.png");
 
   // Connect to the local instance of fcserver. You can change this line to connect to another computer's fcserver
-  opc = new OPC(this, "192.168.1.26", 7890);
+  opc = new OPC(this, "192.168.1.25", 7890);
 
   // Map an 8x8 grid of LEDs to the center of the window, scaled to take up most of the space
 
