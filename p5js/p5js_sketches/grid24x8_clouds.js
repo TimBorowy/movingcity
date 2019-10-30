@@ -1,5 +1,5 @@
 // Connect to the local instance of fcserver
-var WebSocketAddress = "ws://127.0.0.1:7890"; 
+var WebSocketAddress = "ws://192.168.1.25:7890"; 
 //Show LED pixel locations.
 var showPixelLocations = true; 
 //Change the HTML Id of the canvas.
@@ -22,11 +22,13 @@ function setup(){
 
 	// Map an 8x8 grid of LEDs to the center of the window, scaled to take up most of the space
 	var spacing = (height / 8.0)-1;
-	ledGrid8x8(0, width/2, height/2, spacing, 0, true);
+	//ledGrid8x8(0, width/2, height/2, spacing, 0, true);
 
 	//Put two more 8x8 grids to the left and to the right of that one.
-	ledGrid8x8(64, width/2 - spacing * 8, height/2, spacing, 0, true);
-	ledGrid8x8(128, width/2 + spacing * 8, height/2, spacing, 0, true);
+	//ledGrid8x8(64, width/2 - spacing * 8, height/2, spacing, 0, true);
+	//ledGrid8x8(128, width/2 + spacing * 8, height/2, spacing, 0, true);
+	ledGrid(0, 9, 9, width/2, height/2, spacing, spacing, HALF_PI, true);
+
 	colorMode(HSB, 100);
 	background(0);
 }

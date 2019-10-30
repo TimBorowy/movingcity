@@ -1,5 +1,5 @@
 // Connect to the local instance of fcserver. You can change this line to connect to another computer's fcserver
-var WebSocketAddress = "ws://127.0.0.1:7890"; 
+var WebSocketAddress = "ws://192.168.1.25:7890"; 
 //Show LED pixel locations.
 var showPixelLocations = true; 
 //Change the HTML Id of the canvas.
@@ -10,6 +10,7 @@ var dot1;
 var dot2;
 var px = 0;
 var py = 0;
+var t = 0
 function setup(){
 	var canvas = createCanvas(640, 360);
 	canvas.id(canvasId);
@@ -19,8 +20,8 @@ function setup(){
 	dot2 = loadImage("images/purpleDot.png");
 	//var spacing = (canvas.height/14);
 	//Connect to the local instance of fcserver
-	//Map an 8x8 grid of LEDs to the center of the window, scaled to take up most of the space
-	ledGrid8x8(0, width/2, height/2, spacing, HALF_PI, false);
+	//Map an 9x9 grid of LEDs to the center of the window, scaled to take up most of the space
+	ledGrid(0, 9, 9, width/2, height/2, spacing, spacing, HALF_PI, true);
 }
 
 function draw(){
@@ -42,4 +43,5 @@ function draw(){
 	image(dot2, width - dx - dotSize/2, height - dy - dotSize/2, dotSize, dotSize);
 	
 	drawFrame();
+	
 }
