@@ -50,10 +50,10 @@ oscServer.on('message', function (msg, rinfo) {
 
 function draw() {
 
-    var numParticles = 200;
+    var numParticles = 50;
     var particles = [];
 
-    var trail = 100.0;
+    var trail = 40.0;
     var scaledRate1 = (rate1 - 0.5) * 0.5;
     var scaledRate2 = (rate2 - 0.5) * 0.5;
     stateAngle1 += scaledRate1;
