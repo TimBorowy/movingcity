@@ -3,6 +3,7 @@ PImage[] aquarius = new PImage[5];
 PImage currentImage;
 int loop;
 int cycle;
+DisposeHandler dh;
 
 void setup()
 {
@@ -22,6 +23,7 @@ void setup()
   // Connect to the local instance of fcserver. You can change this line to connect to another computer's fcserver
   opc = new OPC(this, "192.168.1.25", 7890);
   opc.ledGrid(0, 9, 9, width/2, height/2, 50, 50, 0, true);
+  dh  = new DisposeHandler(this);
 }
 
 void draw()
@@ -60,12 +62,12 @@ void draw()
   delay(1);
 }
 
-void stop(){
-  // ToDo: before exiting, turn all pixels off.
-  int pixels = 9*9;
-
-  for(int i = 0; i < pixels; i++){
-    opc.setPixel(i, color(0,0,0));
+public class DisposeHandler { // LEDs off when exiting
+  DisposeHandler(PApplet pa) {
+    pa.registerMethod("dispose", this);
   }
-  opc.writePixels();
+  public void dispose() {
+    for(int i=0; i < 9*9; i++) opc.setPixel(i, 0);
+    opc.writePixels();
+  }
 }
