@@ -14,7 +14,7 @@ void setup()
   // Render the noise to a smaller image, it's faster than updating the entire window.
   clouds = createImage(128, 128, RGB);
 
-  opc = new OPC(this, "192.168.1.26", 7890);
+  opc = new OPC(this, "192.168.1.25", 7890);
   opc.ledGrid(0, 9, 9, width/2, height/2, 50, 50, 0, true);
 }
 
