@@ -1,10 +1,9 @@
 export default class Waves{
 	t = 0; // time variable
 
-	constructor(webSocketAddress, canvasId){
-		this.canvasId = canvasId
-		this.webSocketAddress = webSocketAddress
-
+	opc;
+	constructor(opc){
+		this.opc = opc
 	}
 
 	setup(){
@@ -34,6 +33,6 @@ export default class Waves{
 		}
 		
 		this.t = this.t + 0.01; // update time
-		drawFrame();
+		this.opc.drawFrame();
 	}
 }

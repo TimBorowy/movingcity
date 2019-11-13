@@ -1,9 +1,8 @@
 export default class SimpleNoise{
 	clouds;
-	constructor(webSocketAddress, canvasId){
-		this.canvasId = canvasId
-		this.webSocketAddress = webSocketAddress
-
+	opc;
+	constructor(opc){
+		this.opc = opc
 	}
 
 	setup(){
@@ -34,6 +33,6 @@ export default class SimpleNoise{
 		image(this.clouds, 0, 0, this.clouds.width, this.clouds.height,0,0,width,height);
 
 
-		drawFrame();
+		this.opc.drawFrame();
 	}
 }

@@ -4,10 +4,9 @@ export default class Orbit{
 	px = 0;
 	py = 0;
 	//t = 0
-	constructor(webSocketAddress, canvasId){
-		this.canvasId = canvasId
-		this.webSocketAddress = webSocketAddress
-
+	opc;
+	constructor(opc){
+		this.opc = opc
 	}
 
 	setup(){
@@ -34,6 +33,6 @@ export default class Orbit{
 		// Another dot, mirrored around the center
 		image(this.dot2, width - dx - dotSize/2, height - dy - dotSize/2, dotSize, dotSize);
 		
-		drawFrame();
+		this.opc.drawFrame();
 	}
 }
