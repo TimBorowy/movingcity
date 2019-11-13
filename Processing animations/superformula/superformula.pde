@@ -15,7 +15,7 @@ void setup(){
   
   
    
-  opc = new OPC(this, "192.168.1.25", 7890);
+  opc = new OPC(this, "10.71.16.78", 7890);
   opc.ledGrid(0, 9, 9, width/2, height/2, 50, 50, 0, true);
   dh  = new DisposeHandler(this);
    
