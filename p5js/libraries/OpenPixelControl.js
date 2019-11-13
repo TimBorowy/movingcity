@@ -24,7 +24,8 @@ export default class OpenPixelControl{
 	//New WebSocket.
 	socket;
 
-	constructor(WebSocketAddress){
+	constructor(WebSocketAddress, showPixelLocations){
+		this.showPixelLocations = showPixelLocations
 		this.socket = new WebSocket(WebSocketAddress);
 		this.enableShowLocations = true;
 	}
@@ -141,7 +142,7 @@ export default class OpenPixelControl{
 		this.socket.send(this.packet.buffer);
 	
 		//draw pixel locations on screen if enabled
-		if (showPixelLocations === true) {
+		if (this.showPixelLocations === true) {
 			for (let i = 0; i < leds; i++) {
 				stroke(127);
 				//offset x+1 and y+1 so we don't send the dots to the fc Server

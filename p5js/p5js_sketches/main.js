@@ -5,10 +5,10 @@ import Dot from "./Dot.js"
 import Waves from "./Waves.js"
 
 
-const opc = new OPC("ws://10.71.16.78:7890")
+const showPixelLocations = true; 
+const opc = new OPC("ws://10.71.16.78:7890", showPixelLocations)
 
 //Show LED pixel locations.
-const showPixelLocations = true; 
 
 const orbit = new Orbit(opc)
 const simpleNoise = new SimpleNoise(opc)
@@ -51,5 +51,4 @@ function draw(){
 
 window.setup = setup
 window.draw = draw
-window.showPixelLocations = showPixelLocations
 window.changeView = changeView
