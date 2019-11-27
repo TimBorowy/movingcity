@@ -245,6 +245,8 @@ public class OPC
       }
     }
 
+    // Write to local file
+    opcrecorder.writePixelFrame(packetData);
     writePixels();
 
     if (enableShowLocations) {

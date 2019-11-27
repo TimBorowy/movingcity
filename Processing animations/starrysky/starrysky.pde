@@ -4,11 +4,17 @@ PImage currentImage;
 int loop;
 int cycle;
 DisposeHandler dh;
+OPCRecorder opcrecorder;
 
 void setup()
 {
   size(450, 450);
   frameRate(20);
+  
+  // Record current OPC output to local file
+  // location of this file is still a bit of a mystery
+  opcrecorder = new OPCRecorder(this, "OPCFiles/starry2.opc");
+  opcrecorder.setFrameRate(20);
 
   aquarius[0] = loadImage("data/aquarius_pink.jpg");
   aquarius[1] = loadImage("data/aquarius_red.jpg");
@@ -21,7 +27,7 @@ void setup()
   cycle = 1;
 
   // Connect to the local instance of fcserver. You can change this line to connect to another computer's fcserver
-  opc = new OPC(this, "10.71.16.78", 7890);
+  opc = new OPC(this, "127.0.0.1", 7890);
   opc.ledGrid(0, 9, 9, width/2, height/2, 50, 50, 0, true);
   dh  = new DisposeHandler(this);
 }
