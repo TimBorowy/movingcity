@@ -1,0 +1,34 @@
+{
+    "config": {
+        "thisserverport": 8082,
+        "opcserveraddr": "172.16.1.1",
+        "opcserverport": 7890,
+        "gpioexec": "/usr/local/bin/gpio",
+        "shutdowncmd": "sudo /sbin/shutdown -h now",
+        "showtimes": {
+            "enabled": false,
+            "starttime": [18,15],
+            "endtime": [22,30],
+            "autoplaylistname": "Default Playlist"
+        }
+    },
+    "animations": [],
+    "playlists": [
+        {
+            "name": "Default Playlist",
+            "shuffle": true,
+            "items": [
+                {
+                    "file": "snow1.opc",
+                    "title": "Snow animation",
+                    "repeat": 1
+                },
+                {
+                    "file": "snow1star.opc",
+                    "title": "Snow with star",
+                    "repeat": 1
+                }
+	] }
+
+     ]
+}
