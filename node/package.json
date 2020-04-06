@@ -2,7 +2,7 @@
   "name": "fadecandy-examples-node",
   "dependencies": {
     "flags": "~0.1.1",
-    "minimist": "~0.0.8",
+    "minimist": "~1.2.3",
     "node-osc": "^4.1.1",
     "simplex-noise": "~2.1.1"
   },
