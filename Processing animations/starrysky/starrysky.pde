@@ -10,7 +10,7 @@ void setup()
 {
   size(450, 450);
   frameRate(20);
-
+  
   aquarius[0] = loadImage("data/aquarius_pink.jpg");
   aquarius[1] = loadImage("data/aquarius_red.jpg");
   aquarius[2] = loadImage("data/aquarius_purple.jpg");
