@@ -30,6 +30,7 @@ public class OPC
     this.enableShowLocations = true;
     parent.registerMethod("draw", this);
   }
+  
   void enableOPCRecording(boolean record){
     this.recordOPC = record;
   }
