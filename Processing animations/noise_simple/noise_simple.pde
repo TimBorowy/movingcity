@@ -3,6 +3,7 @@
 OPC opc;
 
 PImage clouds;
+OPCRecorder opcrecorder;
 
 void setup()
 {
@@ -16,6 +17,11 @@ void setup()
 
   opc = new OPC(this, "192.168.1.25", 7890);
   opc.ledGrid(0, 9, 9, width/2, height/2, 50, 50, 0, true);
+  
+  // Record current OPC output to local file
+  opcrecorder = new OPCRecorder(this, "D:\\dev\\movingcity\\Clouds.opc");
+  opcrecorder.setFrameRate(20);
+  opc.enableOPCRecording(false);
 }
 
 void draw()
