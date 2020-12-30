@@ -28,7 +28,7 @@ void setup()
   // Record current OPC output to local file
    opcrecorder = new OPCRecorder(this, "D:\\dev\\movingcity\\starrysky1.opc");
    opcrecorder.setFrameRate(20);
-   //opc.enableOPCRecording(true);
+   opc.enableOPCRecording(true);
   
   dh  = new DisposeHandler(this);
 }

@@ -21,6 +21,7 @@ public class OPC
   byte firmwareConfig;
   String colorCorrection;
   boolean enableShowLocations;
+  boolean recordOPC = false;
 
   OPC(PApplet parent, String host, int port)
   {
@@ -28,6 +29,9 @@ public class OPC
     this.port = port;
     this.enableShowLocations = true;
     parent.registerMethod("draw", this);
+  }
+  void enableOPCRecording(boolean record){
+    this.recordOPC = record;
   }
 
   // Set the location of a single LED
@@ -244,8 +248,10 @@ public class OPC
         pixels[pixelLocation] = 0xFFFFFF ^ pixel;
       }
     }
-    // new
-    opcrecorder.writePixelFrame(packetData);
+    
+    if(this.recordOPC){
+      opcrecorder.writePixelFrame(packetData);
+    }
     
     writePixels();
 
