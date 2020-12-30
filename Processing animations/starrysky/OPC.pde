@@ -244,7 +244,9 @@ public class OPC
         pixels[pixelLocation] = 0xFFFFFF ^ pixel;
       }
     }
-
+    // new
+    opcrecorder.writePixelFrame(packetData);
+    
     writePixels();
 
     if (enableShowLocations) {

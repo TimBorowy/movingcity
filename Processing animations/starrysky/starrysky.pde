@@ -4,6 +4,7 @@ PImage currentImage;
 int loop;
 int cycle;
 DisposeHandler dh;
+OPCRecorder opcrecorder;
 
 void setup()
 {
@@ -23,6 +24,12 @@ void setup()
   // Connect to the local instance of fcserver. You can change this line to connect to another computer's fcserver
   opc = new OPC(this, "192.168.1.25", 7890);
   opc.ledGrid(0, 9, 9, width/2, height/2, 50, 50, 0, true);
+  
+  // Record current OPC output to local file
+   opcrecorder = new OPCRecorder(this, "D:\\dev\\movingcity\\starrysky1.opc");
+   opcrecorder.setFrameRate(20);
+   //opc.enableOPCRecording(true);
+  
   dh  = new DisposeHandler(this);
 }
 
